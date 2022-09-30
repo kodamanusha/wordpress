@@ -6,15 +6,15 @@ pipeline{
                 sh '''
                     docker version
                     docker info
-                    docker compose version
+                    docker-compose version
                     curl --version
                 '''
             }
         }
         stage('Start Container'){
             steps{
-                sh 'docker compose up -d'
-                sh 'docker compose ps'
+                sh 'docker-compose up -d'
+                sh 'docker-compose ps'
             }
         }
     }
