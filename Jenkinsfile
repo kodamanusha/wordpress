@@ -13,8 +13,10 @@ pipeline{
         }
         stage('Start Container'){
             steps{
-                sh 'docker -H dockr@10.16.90.50 docker-compose up -d'
-                sh 'docker -H dockr@10.16.90.50 docker-compose ps'
+		sh 'export DOCKER_HOST="ssh://dockr@10.16.90.50"'
+                sh 'docker-compose up -d'
+                sh 'docker-compose ps'
+		sh 'unset DOCKER_HOST'
             }
         }
     }
