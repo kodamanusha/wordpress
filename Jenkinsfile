@@ -13,8 +13,8 @@ pipeline{
         }
         stage('Start Container'){
             steps{
-                sh 'docker-compose up -d'
-                sh 'docker-compose ps'
+                sh 'docker -H dockr@10.16.90.50 docker-compose up -d'
+                sh 'docker -H dockr@10.16.90.50 docker-compose ps'
             }
         }
     }
